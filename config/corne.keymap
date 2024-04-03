@@ -8,7 +8,160 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+/*
+ * Layers
+ */
+#define LAYER_Base 3
+
+/*
+ * Key Positions for Positional Hold Tap
+ */
+#define LEFT_HAND_KEYS  \
+     0  1  2  3  4  5   \
+    12 13 14 15 16 17   \
+    24 25 26 27 28 29
+
+#define RIGHT_HAND_KEYS \
+     6  7  8  9 10 11   \
+    18 19 20 21 22 23   \
+    30 31 32 33 34 35
+
+#define THUMB_KEYS  \
+    36 37 38    39 40 41
+
+/*
+ * Home Row Mods
+ */
+#define HRM_PINKY_HOLDING_TYPE "tap-preferred"
+#define HRM_PINKY_HOLDING_TIME 270
+#define HRM_PINKY_STREAK_DECAY 250
+#define HRM_PINKY_REPEAT_DECAY 300
+
+#define HRM_RING_HOLDING_TYPE "tap-preferred"
+#define HRM_RING_HOLDING_TIME 270
+#define HRM_RING_STREAK_DECAY 250
+#define HRM_RING_REPEAT_DECAY 300
+
+#define HRM_MIDDLE_HOLDING_TYPE "tap-preferred"
+#define HRM_MIDDLE_HOLDING_TIME 270
+#define HRM_MIDDLE_STREAK_DECAY 250
+#define HRM_MIDDLE_REPEAT_DECAY 300
+
+#define HRM_INDEX_HOLDING_TYPE "tap-preferred"
+#define HRM_INDEX_HOLDING_TIME 170
+#define HRM_INDEX_STREAK_DECAY 150
+#define HRM_INDEX_REPEAT_DECAY 300
+
 / {
+    behaviors {
+        /*
+         * Home Row Mods
+         */
+        left_pinky: hrm_left_pinky {
+            label = "HRM: Left Pinky";
+            compatible = "zmk,behavior-hold-tap";
+            flavor = HRM_PINKY_HOLDING_TYPE;
+            hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release; // Wait for other home row mods
+            tapping-term-ms = <HRM_PINKY_HOLDING_TIME>;
+            quick-tap-ms = <HRM_PINKY_REPEAT_DECAY>;
+            require-prior-idle-ms = <HRM_PINKY_STREAK_DECAY>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        right_pinky: hrm_right_pinky {
+            label = "HRM: Right Pinky";
+            compatible = "zmk,behavior-hold-tap";
+            flavor = HRM_PINKY_HOLDING_TYPE;
+            hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release; // Wait for other home row mods
+            tapping-term-ms = <HRM_PINKY_HOLDING_TIME>;
+            quick-tap-ms = <HRM_PINKY_REPEAT_DECAY>;
+            require-prior-idle-ms = <HRM_PINKY_STREAK_DECAY>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        left_ring: hrm_left_ring {
+            label = "HRM: Left Ring";
+            compatible = "zmk,behavior-hold-tap";
+            flavor = HRM_RING_HOLDING_TYPE;
+            hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release; // Wait for other home row mods
+            tapping-term-ms = <HRM_RING_HOLDING_TIME>;
+            quick-tap-ms = <HRM_RING_REPEAT_DECAY>;
+            require-prior-idle-ms = <HRM_RING_STREAK_DECAY>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        right_ring: hrm_right_ring {
+            label = "HRM: Right Ring";
+            compatible = "zmk,behavior-hold-tap";
+            flavor = HRM_RING_HOLDING_TYPE;
+            hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release; // Wait for other home row mods
+            tapping-term-ms = <HRM_RING_HOLDING_TIME>;
+            quick-tap-ms = <HRM_RING_REPEAT_DECAY>;
+            require-prior-idle-ms = <HRM_RING_STREAK_DECAY>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        left_middle: hrm_left_middle {
+            label = "HRM: Left Middle";
+            compatible = "zmk,behavior-hold-tap";
+            flavor = HRM_MIDDLE_HOLDING_TYPE;
+            hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release; // Wait for other home row mods
+            tapping-term-ms = <HRM_MIDDLE_HOLDING_TIME>;
+            quick-tap-ms = <HRM_MIDDLE_REPEAT_DECAY>;
+            require-prior-idle-ms = <HRM_MIDDLE_STREAK_DECAY>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        right_middle: hrm_right_middle {
+            label = "HRM: Right Middle";
+            compatible = "zmk,behavior-hold-tap";
+            flavor = HRM_MIDDLE_HOLDING_TYPE;
+            hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release; // Wait for other home row mods
+            tapping-term-ms = <HRM_MIDDLE_HOLDING_TIME>;
+            quick-tap-ms = <HRM_MIDDLE_REPEAT_DECAY>;
+            require-prior-idle-ms = <HRM_MIDDLE_STREAK_DECAY>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        left_index: hrm_left_index {
+            label = "HRM: Left Index";
+            compatible = "zmk,behavior-hold-tap";
+            flavor = HRM_INDEX_HOLDING_TYPE;
+            hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release; // Wait for other home row mods
+            tapping-term-ms = <HRM_INDEX_HOLDING_TIME>;
+            quick-tap-ms = <HRM_INDEX_REPEAT_DECAY>;
+            require-prior-idle-ms = <HRM_INDEX_STREAK_DECAY>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        right_index: hrm_right_index {
+            label = "HRM: Right Index";
+            compatible = "zmk,behavior-hold-tap";
+            flavor = HRM_INDEX_HOLDING_TYPE;
+            hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
+            hold-trigger-on-release; // Wait for other home row mods
+            tapping-term-ms = <HRM_INDEX_HOLDING_TIME>;
+            quick-tap-ms = <HRM_INDEX_REPEAT_DECAY>;
+            require-prior-idle-ms = <HRM_INDEX_STREAK_DECAY>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -42,10 +195,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp LCTRL  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LGUI  &mo 1  &kp SPACE    &kp RET  &mo 2  &to 3
+&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y    &kp U  &kp I           &kp O    &kp P     &kp BSPC
+&kp LCTRL  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J  &kp K           &kp L    &kp SEMI  &kp SQT
+&kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N    &kp M  &kp COMMA       &kp DOT  &kp FSLH  &kp ESC
+                         &kp LGUI  &mo 1  &kp SPACE    &kp RET  &mo 2  &to LAYER_Base
             >;
         };
 
@@ -79,15 +232,14 @@
             >;
         };
 
-        Base {
-            bindings = <
-&kp ESC  &kp B  &kp Y  &kp O  &kp U  &kp SQT      &kp SEMI   &kp L  &kp D  &kp W  &kp V  &kp Z
-&kp TAB  &kp C  &kp I  &kp E  &kp A  &kp COMMA    &kp DOT    &kp H  &kp T  &kp S  &kp N  &kp RET
-&to 0    &kp G  &kp X  &kp J  &kp K  &kp MINUS    &kp FSLH   &kp R  &kp M  &kp F  &kp P  &kp Q
-                       &none  &none  &kp BSPC     &kp SPACE  &none  &none
-            >;
-
+        base_layer {
             label = "Base Layer";
+            bindings = <
+&kp ESC  &kp B                       &kp Y                  &kp O                    &kp U                     &kp SQT      &kp SEMI   &kp L                       &kp D                      &kp W                    &kp V                         &kp Z
+&kp TAB  &left_pinky LEFT_CONTROL C  &left_ring LEFT_ALT I  &left_middle LEFT_GUI E  &left_index LEFT_SHIFT A  &kp COMMA    &kp DOT    &right_index RIGHT_SHIFT H  &right_middle RIGHT_GUI T  &right_ring RIGHT_ALT S  &right_pinky RIGHT_CONTROL N  &kp RET
+&to 0    &kp G                       &kp X                  &kp J                    &kp K                     &kp MINUS    &kp FSLH   &kp R                       &kp M                      &kp F                    &kp P                         &kp Q
+                                                            &none                    &none                     &kp BSPC     &kp SPACE  &none                       &none
+            >;
         };
     };
 };
