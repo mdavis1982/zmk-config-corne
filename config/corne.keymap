@@ -1,21 +1,16 @@
 /*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
+ * My Corne Layout
  */
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-/*
- * Layers
- */
-#define LAYER_Base 3
+/** -- Layers -- **/
+#define LAYER_Base 0
+#define LAYER_Number 1
 
-/*
- * Key Positions for Positional Hold Tap
- */
+/** -- Key Positions for Positional Hold Tap -- **/
 #define LEFT_HAND_KEYS  \
      0  1  2  3  4  5   \
     12 13 14 15 16 17   \
@@ -29,9 +24,7 @@
 #define THUMB_KEYS  \
     36 37 38    39 40 41
 
-/*
- * Home Row Mods
- */
+/** -- Home Row Mods -- **/
 #define HRM_PINKY_HOLDING_TYPE "tap-preferred"
 #define HRM_PINKY_HOLDING_TIME 270
 #define HRM_PINKY_STREAK_DECAY 250
@@ -54,9 +47,7 @@
 
 / {
     behaviors {
-        /*
-         * Home Row Mods
-         */
+        /** -- Home Row Mods -- **/
         left_pinky: hrm_left_pinky {
             label = "HRM: Left Pinky";
             compatible = "zmk,behavior-hold-tap";
@@ -160,6 +151,17 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
         };
+
+        layer_dance: layer_dance {
+            label = "Layer Dance";
+            compatible = "zmk,behavior-hold-tap";
+            flavor = "hold-preferred";
+            tapping-term-ms = <170>;
+            quick-tap-ms = <300>;
+            require-prior-idle-ms = <150>;
+            #binding-cells = <2>;
+            bindings = <&mo>, <&to>;
+        };
     };
 
     combos {
@@ -187,58 +189,43 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
-            bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T        &kp Y    &kp U  &kp I           &kp O    &kp P     &kp BSPC
-&kp LCTRL  &kp A  &kp S  &kp D     &kp F  &kp G        &kp H    &kp J  &kp K           &kp L    &kp SEMI  &kp SQT
-&kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp N    &kp M  &kp COMMA       &kp DOT  &kp FSLH  &kp ESC
-                         &kp LGUI  &mo 1  &kp SPACE    &kp RET  &mo 2  &to LAYER_Base
-            >;
-        };
-
-        lower_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-            // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-            // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            bindings = <
-&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
-&kp LSHFT   &trans        &trans        &trans        &trans        &trans          &trans    &trans    &trans    &trans     &trans  &trans
-                                        &kp LGUI      &trans        &kp SPACE       &kp RET   &trans    &kp RALT
-            >;
-        };
-
-        raise_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-            // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-            // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
-
-            bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                             &kp LGUI  &trans    &kp SPACE    &kp RET    &trans     &kp RALT
-            >;
-        };
-
         base_layer {
             label = "Base Layer";
             bindings = <
-&kp ESC  &kp B                       &kp Y                  &kp O                    &kp U                     &kp SQT      &kp SEMI   &kp L                       &kp D                      &kp W                    &kp V                         &kp Z
-&kp TAB  &left_pinky LEFT_CONTROL C  &left_ring LEFT_ALT I  &left_middle LEFT_GUI E  &left_index LEFT_SHIFT A  &kp COMMA    &kp DOT    &right_index RIGHT_SHIFT H  &right_middle RIGHT_GUI T  &right_ring RIGHT_ALT S  &right_pinky RIGHT_CONTROL N  &kp RET
-&to 0    &kp G                       &kp X                  &kp J                    &kp K                     &kp MINUS    &kp FSLH   &kp R                       &kp M                      &kp F                    &kp P                         &kp Q
-                                                            &none                    &none                     &kp BSPC     &kp SPACE  &none                       &none
+&kp ESC           &kp B                       &kp Y                  &kp O                    &kp U                                   &kp SQT      &kp SEMI   &kp L                       &kp D                      &kp W                    &kp V                         &kp Z
+&kp TAB           &left_pinky LEFT_CONTROL C  &left_ring LEFT_ALT I  &left_middle LEFT_GUI E  &left_index LEFT_SHIFT A                &kp COMMA    &kp DOT    &right_index RIGHT_SHIFT H  &right_middle RIGHT_GUI T  &right_ring RIGHT_ALT S  &right_pinky RIGHT_CONTROL N  &kp RET
+&to LAYER_Base    &kp G                       &kp X                  &kp J                    &kp K                                   &kp MINUS    &kp FSLH   &kp R                       &kp M                      &kp F                    &kp P                         &kp Q
+                                                                     &none                    &layer_dance LAYER_Number LAYER_Number  &kp BSPC     &kp SPACE  &none                       &none
+            >;
+        };
+
+        number_layer {
+            label = "Number Layer";
+            bindings = <
+&trans           &none             &none         &none           &none           &none     &kp MINUS     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp ASTERISK  &kp PERCENT
+&trans           &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI    &kp LEFT_SHIFT  &none     &kp PLUS      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp FSLH      &trans
+&to LAYER_Base   &none             &none         &none           &none           &none     &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT       &kp EQUAL
+                                   &none         &to LAYER_Base  &trans    &trans           &none            &none
+            >;
+        };
+
+        none_layer {
+            label = "TEMPLATE: None Layer";
+            bindings = <
+&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
+                     &none  &none  &none    &none  &none  &none
+            >;
+        };
+
+        trans_layer {
+            label = "TEMPLATE: Trans Layer";
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
