@@ -9,6 +9,7 @@
 /** -- Layers -- **/
 #define LAYER_Base 0
 #define LAYER_Number 1
+#define LAYER_Symbol 2
 
 /** -- Key Positions for Positional Hold Tap -- **/
 #define LEFT_HAND_KEYS  \
@@ -192,20 +193,30 @@
         base_layer {
             label = "Base Layer";
             bindings = <
-&kp ESC           &kp B                       &kp Y                  &kp O                    &kp U                                   &kp SQT      &kp SEMI   &kp L                       &kp D                      &kp W                    &kp V                         &kp Z
-&kp TAB           &left_pinky LEFT_CONTROL C  &left_ring LEFT_ALT I  &left_middle LEFT_GUI E  &left_index LEFT_SHIFT A                &kp COMMA    &kp DOT    &right_index RIGHT_SHIFT H  &right_middle RIGHT_GUI T  &right_ring RIGHT_ALT S  &right_pinky RIGHT_CONTROL N  &kp RET
-&to LAYER_Base    &kp G                       &kp X                  &kp J                    &kp K                                   &kp MINUS    &kp FSLH   &kp R                       &kp M                      &kp F                    &kp P                         &kp Q
-                                                                     &none                    &layer_dance LAYER_Number LAYER_Number  &kp BSPC     &kp SPACE  &none                       &none
+&kp ESC  &kp B                       &kp Y                  &kp O                    &kp U                                   &kp SQT      &kp SEMI   &kp L                                   &kp D                      &kp W                    &kp V                         &kp Z
+&kp TAB  &left_pinky LEFT_CONTROL C  &left_ring LEFT_ALT I  &left_middle LEFT_GUI E  &left_index LEFT_SHIFT A                &kp COMMA    &kp DOT    &right_index RIGHT_SHIFT H              &right_middle RIGHT_GUI T  &right_ring RIGHT_ALT S  &right_pinky RIGHT_CONTROL N  &kp RET
+&none    &kp G                       &kp X                  &kp J                    &kp K                                   &kp MINUS    &kp FSLH   &kp R                                   &kp M                      &kp F                    &kp P                         &kp Q
+                                                            &none                    &layer_dance LAYER_Number LAYER_Number  &kp BSPC     &kp SPACE  &layer_dance LAYER_Symbol LAYER_Symbol  &none
             >;
         };
 
         number_layer {
             label = "Number Layer";
             bindings = <
-&trans           &none             &none         &none           &none           &none     &kp MINUS     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp ASTERISK  &kp PERCENT
-&trans           &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI    &kp LEFT_SHIFT  &none     &kp PLUS      &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp FSLH      &trans
-&to LAYER_Base   &none             &none         &none           &none           &none     &kp NUMBER_0  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp DOT       &kp EQUAL
-                                   &none         &to LAYER_Base  &trans    &trans           &none            &none
+&trans   &none             &none         &none           &none           &none     &kp MINUS     &kp NUMBER_7                            &kp NUMBER_8  &kp NUMBER_9  &kp ASTERISK  &kp PERCENT
+&trans   &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI    &kp LEFT_SHIFT  &none     &kp PLUS      &kp NUMBER_4                            &kp NUMBER_5  &kp NUMBER_6  &kp FSLH      &trans
+&none    &none             &none         &none           &none           &none     &kp NUMBER_0  &kp NUMBER_1                            &kp NUMBER_2  &kp NUMBER_3  &kp DOT       &kp EQUAL
+                                         &none           &to LAYER_Base  &trans    &trans        &layer_dance LAYER_Symbol LAYER_Symbol  &none
+            >;
+        };
+
+        symbol_layer {
+            label = "Symbol Layer";
+            bindings = <
+&trans  &none  &none  &none  &none  &none    &none   &none  &none  &none  &none  &none
+&trans  &none  &none  &none  &none  &none    &none   &none  &none  &none  &none  &none
+&none   &none  &none  &none  &none  &none    &none   &none  &none  &none  &none  &none
+                      &none  &layer_dance LAYER_Number LAYER_Number  &trans   &trans  &none  &none
             >;
         };
 
