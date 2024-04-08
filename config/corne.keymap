@@ -213,10 +213,10 @@
         symbol_layer {
             label = "Symbol Layer";
             bindings = <
-&trans  &none  &none  &none  &none  &none    &none   &none  &none  &none  &none  &none
-&trans  &none  &none  &none  &none  &none    &none   &none  &none  &none  &none  &none
-&none   &none  &none  &none  &none  &none    &none   &none  &none  &none  &none  &none
-                      &none  &layer_dance LAYER_Number LAYER_Number  &trans   &trans  &none  &none
+&trans  &none                       &none                  &none                    &none                                   &none    &none   &none                       &none                      &none                    &none                         &none
+&trans  &left_pinky LEFT_CONTROL X  &left_ring LEFT_ALT X  &left_middle LEFT_GUI X  &left_index LEFT_SHIFT X                &none    &none   &right_index RIGHT_SHIFT X  &right_middle RIGHT_GUI X  &right_ring RIGHT_ALT X  &right_pinky RIGHT_CONTROL X  &trans
+&none   &none                       &none                  &none                    &none                                   &none    &none   &none                       &none                      &none                    &none                         &none
+                                                           &none                    &layer_dance LAYER_Number LAYER_Number  &trans   &trans  &to LAYER_Base              &none
             >;
         };
 
