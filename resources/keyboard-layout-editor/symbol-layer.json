@@ -1,9 +1,7 @@
 [
     {
-        "name": "Corne - Number Layer",
-        "author": "Matthew Davis",
-        "plate": false,
-        "pcb": false
+        "name": "Corne - Symbol Layer",
+        "author": "Matthew Davis"
     },
     [
         {
@@ -11,50 +9,47 @@
             "x": 3,
             "a": 7
         },
-        "",
+        "\\",
         {
             "x": 6
         },
-        "8"
+        "/"
     ],
     [
         {
             "y": -0.75,
             "x": 2
         },
-        "",
+        "~",
         {
             "x": 1
         },
-        "",
+        "!",
         {
             "x": 4
         },
-        "7",
+        "*",
         {
             "x": 1
         },
-        "9"
+        "\""
     ],
     [
         {
             "y": -0.875,
-            "x": 5,
-            "f": 4
+            "x": 5
         },
-        "",
+        "{",
         {
-            "x": 2,
-            "a": 5
+            "x": 2
         },
-        "_\n-"
+        "}"
     ],
     [
         {
             "y": -0.875,
             "c": "#ea580c",
             "t": "#ffffff",
-            "a": 7,
             "f": 6
         },
         "<i class='mss mss-Unicode-Escape-3'></i>",
@@ -63,63 +58,55 @@
             "t": "#000000",
             "f": 3
         },
-        "",
+        "`",
         {
-            "x": 10,
-            "f": 6
+            "x": 10
         },
-        "*",
-        {
-            "f": 3
-        },
-        "%"
+        "&",
+        "+"
     ],
     [
         {
             "y": -0.5,
-            "x": 3,
-            "f": 4
+            "x": 3
         },
-        "<i class='mss mss-Unicode-Command-3'></i>",
+        "_\n\n\n\n<i class='mss mss-Unicode-Command-3'></i>",
         {
-            "x": 6,
-            "f": 3
+            "x": 6
         },
-        "5"
+        "@\n\n\n\n<i class='mss mss-Unicode-Command-3'></i>"
     ],
     [
         {
             "y": -0.75,
-            "x": 2,
-            "f": 4
+            "x": 2
         },
-        "<i class='mss mss-Unicode-Option-3'></i>",
+        "=\n\n\n\n<i class='mss mss-Unicode-Option-3'></i>",
         {
-            "x": 1
-        },
-        "<i class='fa fa-arrow-up'></i>",
-        {
-            "x": 4,
-            "f": 3,
+            "x": 1,
             "n": true
         },
-        "4",
+        "$\n\n\n\n<i class='fa fa-arrow-up'></i>",
+        {
+            "x": 4,
+            "n": true
+        },
+        ";\n\n\n\n<i class='fa fa-arrow-up'></i>",
         {
             "x": 1
         },
-        "6"
+        "'\n\n\n\n<i class='mss mss-Unicode-Option-3'></i>"
     ],
     [
         {
             "y": -0.875,
-            "x": 5,
-            "f": 4
+            "x": 5
         },
-        "",
+        "(",
         {
             "x": 2
         },
-        "+"
+        ")"
     ],
     [
         {
@@ -130,17 +117,16 @@
         "<i class='kb kb-Line-End'></i>",
         {
             "c": "#cccccc",
-            "f": 6
+            "f": 3
         },
-        "<i class='fa fa-angle-up'></i>",
+        "^\n\n\n\n<i class='fa fa-angle-up'></i>",
         {
-            "x": 10,
-            "a": 5,
-            "f": 4
+            "x": 10
         },
-        "?\n/",
+        "?\n\n\n\n<i class='fa fa-angle-up'></i>",
         {
             "c": "#a1a1aa",
+            "a": 5,
             "f": 8
         },
         "\n&crarr;"
@@ -153,43 +139,41 @@
             "a": 7,
             "f": 3
         },
-        "",
+        "-",
         {
             "x": 6
         },
-        "2"
+        "#"
     ],
     [
         {
             "y": -0.75,
             "x": 2
         },
-        "",
+        "|",
         {
             "x": 1
         },
-        "",
+        ">",
         {
             "x": 4
         },
-        "1",
+        ":",
         {
             "x": 1
         },
-        "3"
+        ","
     ],
     [
         {
             "y": -0.875,
-            "x": 5,
-            "f": 4
+            "x": 5
         },
-        "",
+        "[",
         {
-            "x": 2,
-            "f": 3
+            "x": 2
         },
-        "0"
+        "]"
     ],
     [
         {
@@ -200,21 +184,17 @@
         {
             "c": "#cccccc"
         },
-        "",
+        "<",
         {
-            "x": 10,
-            "a": 5,
-            "f": 4
+            "x": 10
         },
-        ">\n.",
-        "+\n="
+        ".",
+        "%"
     ],
     [
         {
             "x": 3.25,
-            "c": "#059669",
-            "a": 7,
-            "f": 3
+            "c": "#059669"
         },
         "",
         {
@@ -231,7 +211,7 @@
             "y": -1,
             "c": "#facc15"
         },
-        "Base"
+        "Num"
     ],
     [
         {
@@ -271,6 +251,6 @@
             "c": "#0284c7",
             "f": 3
         },
-        "Sym"
+        "Base"
     ]
 ]
