@@ -1,6 +1,6 @@
 [
     {
-        "name": "Corne - Base Layer",
+        "name": "Corne - Nav Layer",
         "author": "Matthew Davis",
         "plate": false,
         "pcb": false
@@ -11,50 +11,51 @@
             "x": 3,
             "a": 7
         },
-        "O",
+        "",
         {
-            "x": 6
+            "x": 6,
+            "f": 4
         },
-        "D"
+        "<i class='fa fa-arrow-up'></i>"
     ],
     [
         {
             "y": -0.75,
-            "x": 2
+            "x": 2,
+            "f": 3
         },
-        "Y",
+        "",
         {
             "x": 1
         },
-        "U",
+        "",
         {
             "x": 4
         },
-        "L",
+        "",
         {
             "x": 1
         },
-        "W"
+        ""
     ],
     [
         {
             "y": -0.875,
             "x": 5,
-            "a": 5,
             "f": 4
         },
-        "\"\n'",
+        "",
         {
-            "x": 2
+            "x": 2,
+            "f": 3
         },
-        ":\n;"
+        ""
     ],
     [
         {
             "y": -0.875,
             "c": "#ea580c",
             "t": "#ffffff",
-            "a": 7,
             "f": 6
         },
         "<i class='mss mss-Unicode-Escape-3'></i>",
@@ -63,63 +64,64 @@
             "t": "#000000",
             "f": 3
         },
-        "B",
+        "",
         {
             "x": 10
         },
-        "V",
-        "Z"
+        "",
+        ""
     ],
     [
         {
             "y": -0.5,
             "x": 3
         },
-        "E\n\n\n\n<i class='mss mss-Unicode-Command-3'></i>",
+        "",
         {
-            "x": 6
+            "x": 6,
+            "f": 4
         },
-        "T\n\n\n\n<i class='mss mss-Unicode-Command-3'></i>"
+        "<i class='fa fa-arrow-down'></i>"
     ],
     [
         {
             "y": -0.75,
-            "x": 2
+            "x": 2,
+            "f": 3
         },
-        "I\n\n\n\n<i class='mss mss-Unicode-Option-3'></i>",
+        "",
         {
             "x": 1,
             "n": true
         },
-        "A\n\n\n\n<i class='fa fa-arrow-up'></i>",
+        "",
         {
             "x": 4,
+            "f": 4,
             "n": true
         },
-        "H\n\n\n\n<i class='fa fa-arrow-up'></i>",
+        "<i class='fa fa-arrow-left'></i>",
         {
             "x": 1
         },
-        "S\n\n\n\n<i class='mss mss-Unicode-Option-3'></i>"
+        "<i class='fa fa-arrow-right'></i>"
     ],
     [
         {
             "y": -0.875,
-            "x": 5,
-            "a": 5,
-            "f": 4
+            "x": 5
         },
-        "<\n,",
+        "",
         {
-            "x": 2
+            "x": 2,
+            "f": 3
         },
-        ">\n."
+        ""
     ],
     [
         {
             "y": -0.875,
             "c": "#a1a1aa",
-            "a": 7,
             "f": 9
         },
         "<i class='kb kb-Line-End'></i>",
@@ -127,11 +129,11 @@
             "c": "#cccccc",
             "f": 3
         },
-        "C\n\n\n\n<i class='fa fa-angle-up'></i>",
+        "",
         {
             "x": 10
         },
-        "N\n\n\n\n<i class='fa fa-angle-up'></i>",
+        "",
         {
             "c": "#a1a1aa",
             "a": 5,
@@ -147,68 +149,66 @@
             "a": 7,
             "f": 3
         },
-        "J",
+        "",
         {
             "x": 6
         },
-        "M"
+        ""
     ],
     [
         {
             "y": -0.75,
             "x": 2
         },
-        "X",
+        "",
         {
             "x": 1
         },
-        "K",
+        "",
         {
             "x": 4
         },
-        "R",
+        "",
         {
             "x": 1
         },
-        "F"
+        ""
     ],
     [
         {
             "y": -0.875,
             "x": 5,
-            "a": 5,
             "f": 4
         },
-        "_\n-",
+        "",
         {
-            "x": 2
+            "x": 2,
+            "f": 3
         },
-        "?\n/"
+        ""
     ],
     [
         {
             "y": -0.875,
-            "c": "#a1a1aa",
-            "a": 7,
-            "f": 3
+            "c": "#a1a1aa"
         },
         "",
         {
             "c": "#cccccc"
         },
-        "G",
+        "",
         {
             "x": 10
         },
-        "P",
-        "Q"
+        "",
+        ""
     ],
     [
         {
             "x": 3.25,
             "c": "#059669"
         },
-        "Nav",
+        "Base",
         {
             "x": 5.5,
             "c": "#dc2626"

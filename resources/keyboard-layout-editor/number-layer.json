@@ -95,7 +95,8 @@
         },
         "<i class='mss mss-Unicode-Option-3'></i>",
         {
-            "x": 1
+            "x": 1,
+            "n": true
         },
         "<i class='fa fa-arrow-up'></i>",
         {
@@ -216,7 +217,7 @@
             "a": 7,
             "f": 3
         },
-        "",
+        "Nav",
         {
             "x": 5.5,
             "c": "#dc2626"
