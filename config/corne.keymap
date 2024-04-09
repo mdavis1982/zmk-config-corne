@@ -108,7 +108,7 @@
             label = "Two Deletes: Back and Forward";
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            binding = <&kp BACKSPACE>, <&kp DELETE>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
             mods = <(MOD_LSFT|MOD_RSFT|MOD_LALT|MOD_RALT)>;
         };
     };

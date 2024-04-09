@@ -241,16 +241,22 @@
             "y": -1.5,
             "x": -1,
             "c": "#a1a1aa",
+            "a": 5,
             "f": 9,
+            "fa": [
+                6
+            ],
             "h": 1.5
         },
-        "<i class='mss mss-Unicode-BackSpace-DeleteLeft-Big-2'></i>"
+        "<i class='mss mss-Unicode-DeleteRight-Big-2'></i>\n<i class='mss mss-Unicode-BackSpace-DeleteLeft-Big-2'></i>"
     ],
     [
         {
             "r": -30,
             "rx": 7.75,
             "y": -1.5,
+            "a": 7,
+            "f": 9,
             "h": 1.5
         },
         "␣"
@@ -265,6 +271,6 @@
             "c": "#0284c7",
             "f": 3
         },
-        ""
+        "Sym"
     ]
 ]
