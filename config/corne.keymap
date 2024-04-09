@@ -7,9 +7,9 @@
 #include <dt-bindings/zmk/keys.h>
 
 /** -- Layers -- **/
-#define LAYER_Base 0
-#define LAYER_Number 1
-#define LAYER_Symbol 2
+#define BASE 0
+#define NUMBER 1
+#define SYMBOL 2
 
 /** -- Key Positions for Positional Hold Tap -- **/
 #define LEFT_HAND_KEYS  \
@@ -26,20 +26,10 @@
     36 37 38    39 40 41
 
 /** -- Home Row Mods -- **/
-#define HRM_PINKY_HOLDING_TYPE "tap-preferred"
-#define HRM_PINKY_HOLDING_TIME 270
-#define HRM_PINKY_STREAK_DECAY 250
-#define HRM_PINKY_REPEAT_DECAY 300
-
-#define HRM_RING_HOLDING_TYPE "tap-preferred"
-#define HRM_RING_HOLDING_TIME 270
-#define HRM_RING_STREAK_DECAY 250
-#define HRM_RING_REPEAT_DECAY 300
-
-#define HRM_MIDDLE_HOLDING_TYPE "tap-preferred"
-#define HRM_MIDDLE_HOLDING_TIME 270
-#define HRM_MIDDLE_STREAK_DECAY 250
-#define HRM_MIDDLE_REPEAT_DECAY 300
+#define HRM_HOLDING_TYPE "tap-preferred"
+#define HRM_HOLDING_TIME 270
+#define HRM_STREAK_DECAY 250
+#define HRM_REPEAT_DECAY 300
 
 #define HRM_INDEX_HOLDING_TYPE "tap-preferred"
 #define HRM_INDEX_HOLDING_TIME 170
@@ -49,86 +39,34 @@
 / {
     behaviors {
         /** -- Home Row Mods -- **/
-        left_pinky: hrm_left_pinky {
-            label = "HRM: Left Pinky";
+        hrm_l: home_row_mod_left {
+            label = "Home Row Mod: Left";
             compatible = "zmk,behavior-hold-tap";
-            flavor = HRM_PINKY_HOLDING_TYPE;
+            flavor = HRM_HOLDING_TYPE;
             hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
             hold-trigger-on-release; // Wait for other home row mods
-            tapping-term-ms = <HRM_PINKY_HOLDING_TIME>;
-            quick-tap-ms = <HRM_PINKY_REPEAT_DECAY>;
-            require-prior-idle-ms = <HRM_PINKY_STREAK_DECAY>;
+            tapping-term-ms = <HRM_HOLDING_TIME>;
+            quick-tap-ms = <HRM_REPEAT_DECAY>;
+            require-prior-idle-ms = <HRM_STREAK_DECAY>;
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
         };
 
-        right_pinky: hrm_right_pinky {
-            label = "HRM: Right Pinky";
+        hrm_r: home_row_mod_right {
+            label = "Home Row Mod: Right";
             compatible = "zmk,behavior-hold-tap";
-            flavor = HRM_PINKY_HOLDING_TYPE;
+            flavor = HRM_HOLDING_TYPE;
             hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
             hold-trigger-on-release; // Wait for other home row mods
-            tapping-term-ms = <HRM_PINKY_HOLDING_TIME>;
-            quick-tap-ms = <HRM_PINKY_REPEAT_DECAY>;
-            require-prior-idle-ms = <HRM_PINKY_STREAK_DECAY>;
+            tapping-term-ms = <HRM_HOLDING_TIME>;
+            quick-tap-ms = <HRM_REPEAT_DECAY>;
+            require-prior-idle-ms = <HRM_STREAK_DECAY>;
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
         };
 
-        left_ring: hrm_left_ring {
-            label = "HRM: Left Ring";
-            compatible = "zmk,behavior-hold-tap";
-            flavor = HRM_RING_HOLDING_TYPE;
-            hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
-            hold-trigger-on-release; // Wait for other home row mods
-            tapping-term-ms = <HRM_RING_HOLDING_TIME>;
-            quick-tap-ms = <HRM_RING_REPEAT_DECAY>;
-            require-prior-idle-ms = <HRM_RING_STREAK_DECAY>;
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
-
-        right_ring: hrm_right_ring {
-            label = "HRM: Right Ring";
-            compatible = "zmk,behavior-hold-tap";
-            flavor = HRM_RING_HOLDING_TYPE;
-            hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
-            hold-trigger-on-release; // Wait for other home row mods
-            tapping-term-ms = <HRM_RING_HOLDING_TIME>;
-            quick-tap-ms = <HRM_RING_REPEAT_DECAY>;
-            require-prior-idle-ms = <HRM_RING_STREAK_DECAY>;
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
-
-        left_middle: hrm_left_middle {
-            label = "HRM: Left Middle";
-            compatible = "zmk,behavior-hold-tap";
-            flavor = HRM_MIDDLE_HOLDING_TYPE;
-            hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
-            hold-trigger-on-release; // Wait for other home row mods
-            tapping-term-ms = <HRM_MIDDLE_HOLDING_TIME>;
-            quick-tap-ms = <HRM_MIDDLE_REPEAT_DECAY>;
-            require-prior-idle-ms = <HRM_MIDDLE_STREAK_DECAY>;
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
-
-        right_middle: hrm_right_middle {
-            label = "HRM: Right Middle";
-            compatible = "zmk,behavior-hold-tap";
-            flavor = HRM_MIDDLE_HOLDING_TYPE;
-            hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
-            hold-trigger-on-release; // Wait for other home row mods
-            tapping-term-ms = <HRM_MIDDLE_HOLDING_TIME>;
-            quick-tap-ms = <HRM_MIDDLE_REPEAT_DECAY>;
-            require-prior-idle-ms = <HRM_MIDDLE_STREAK_DECAY>;
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
-
-        left_index: hrm_left_index {
-            label = "HRM: Left Index";
+        hrm_li: home_row_mod_left_index {
+            label = "Home Row Mod: Left Index";
             compatible = "zmk,behavior-hold-tap";
             flavor = HRM_INDEX_HOLDING_TYPE;
             hold-trigger-key-positions = <RIGHT_HAND_KEYS THUMB_KEYS>;
@@ -140,8 +78,8 @@
             bindings = <&kp>, <&kp>;
         };
 
-        right_index: hrm_right_index {
-            label = "HRM: Right Index";
+        hrm_ri: home_row_mod_right_index {
+            label = "Home Row Mod: Right Index";
             compatible = "zmk,behavior-hold-tap";
             flavor = HRM_INDEX_HOLDING_TYPE;
             hold-trigger-key-positions = <LEFT_HAND_KEYS THUMB_KEYS>;
@@ -153,7 +91,8 @@
             bindings = <&kp>, <&kp>;
         };
 
-        layer_dance: layer_dance {
+        /* -- Layer Movement -- */
+        ld: layer_dance {
             label = "Layer Dance";
             compatible = "zmk,behavior-hold-tap";
             flavor = "hold-preferred";
@@ -163,28 +102,15 @@
             #binding-cells = <2>;
             bindings = <&mo>, <&to>;
         };
-    };
 
-    combos {
-        compatible = "zmk,combos";
-
-        // combo_example {
-        //     key-positions = <0 1>;          // When these keys are pressed...
-        //     timeout-ms = 50;                // Within this timeframe...
-        //     bindings = <&kp ESC>;           // Do this...
-        //     layers = <0>;                   // But only on these layers...
-        //     require-prior-idle-ms = -1;     // And only if no non-modifier keys have been pressed within this timeframe...
-        //     slow-release = false;           // And release the combo when any key is released (true for when all keys released)
-        // }
-    };
-
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        // conditional_layers_example {
-        //     if-layers = <1 2>;  // When these two layers are activated at the same time...
-        //     then-layer = <3>;   // Actually activate this layer instead
-        // }
+        /* -- Extra Functionality -- */
+        dels: delete_directions {
+            label = "Two Deletes: Back and Forward";
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            binding = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LSFT|MOD_RSFT|MOD_LALT|MOD_RALT)>;
+        }
     };
 
     keymap {
@@ -193,50 +119,40 @@
         base_layer {
             label = "Base Layer";
             bindings = <
-&kp ESC  &kp B                       &kp Y                  &kp O                    &kp U                                   &kp SQT      &kp SEMI   &kp L                                   &kp D                      &kp W                    &kp V                         &kp Z
-&kp TAB  &left_pinky LEFT_CONTROL C  &left_ring LEFT_ALT I  &left_middle LEFT_GUI E  &left_index LEFT_SHIFT A                &kp COMMA    &kp DOT    &right_index RIGHT_SHIFT H              &right_middle RIGHT_GUI T  &right_ring RIGHT_ALT S  &right_pinky RIGHT_CONTROL N  &kp RET
-&none    &kp G                       &kp X                  &kp J                    &kp K                                   &kp MINUS    &kp FSLH   &kp R                                   &kp M                      &kp F                    &kp P                         &kp Q
-                                                            &none                    &layer_dance LAYER_Number LAYER_Number  &kp BSPC     &kp SPACE  &layer_dance LAYER_Symbol LAYER_Symbol  &none
+&kp ESC  &kp B                  &kp Y              &kp O              &kp U                 &kp SQT    &kp SEMI   &kp L                  &kp D               &kp W               &kp V                   &kp Z
+&kp TAB  &hrm_l LEFT_CONTROL C  &hrm_l LEFT_ALT I  &hrm_l LEFT_GUI E  &hrm_li LEFT_SHIFT A  &kp COMMA  &kp DOT    &hrm_ri RIGHT_SHIFT H  &hrm_r RIGHT_GUI T  &hrm_r RIGHT_ALT S  &hrm_r RIGHT_CONTROL N  &kp RET
+&none    &kp G                  &kp X              &kp J              &kp K                 &kp MINUS  &kp FSLH   &kp R                  &kp M               &kp F               &kp P                   &kp Q
+                                                   &none              &ld NUMBER NUMBER     &dels      &kp SPACE  &ld SYMBOL SYMBOL      &none
             >;
         };
 
         number_layer {
             label = "Number Layer";
             bindings = <
-&trans   &none             &none         &none           &none           &none     &kp MINUS     &kp NUMBER_7                            &kp NUMBER_8  &kp NUMBER_9  &kp ASTERISK  &kp PERCENT
-&trans   &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI    &kp LEFT_SHIFT  &none     &kp PLUS      &kp NUMBER_4                            &kp NUMBER_5  &kp NUMBER_6  &kp FSLH      &trans
-&none    &none             &none         &none           &none           &none     &kp NUMBER_0  &kp NUMBER_1                            &kp NUMBER_2  &kp NUMBER_3  &kp DOT       &kp EQUAL
-                                         &none           &to LAYER_Base  &trans    &trans        &layer_dance LAYER_Symbol LAYER_Symbol  &none
+&trans  &none             &none         &none         &none           &none   &kp MINUS     &kp NUMBER_7       &kp NUMBER_8  &kp NUMBER_9  &kp ASTERISK  &kp PERCENT
+&trans  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI  &kp LEFT_SHIFT  &none   &kp PLUS      &kp NUMBER_4       &kp NUMBER_5  &kp NUMBER_6  &kp FSLH      &trans
+&none   &none             &none         &none         &none           &none   &kp NUMBER_0  &kp NUMBER_1       &kp NUMBER_2  &kp NUMBER_3  &kp DOT       &kp EQUAL
+                                        &none         &to BASE        &trans  &trans        &ld SYMBOL SYMBOL  &none
             >;
         };
 
         symbol_layer {
             label = "Symbol Layer";
             bindings = <
-&trans  &kp GRAVE                       &kp TILDE                  &kp BACKSLASH                     &kp EXCLAMATION                         &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp ASTERISK                        &kp SLASH                        &kp DOUBLE_QUOTES                   &kp AMPERSAND                        &kp PLUS
-&trans  &left_pinky LEFT_CONTROL CARET  &left_ring LEFT_ALT EQUAL  &left_middle LEFT_GUI UNDERSCORE  &left_index LEFT_SHIFT DOLLAR           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &right_index RIGHT_SHIFT SEMICOLON  &right_middle RIGHT_GUI AT_SIGN  &right_ring RIGHT_ALT SINGLE_QUOTE  &right_pinky RIGHT_CONTROL QUESTION  &trans
-&none   &kp LESS_THAN                   &kp PIPE                   &kp MINUS                         &kp GREATER_THAN                        &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON                           &kp HASH                         &kp COMMA                           &kp PERIOD                           &kp PERCENT
-                                                                   &none                             &layer_dance LAYER_Number LAYER_Number  &trans                &trans                 &to LAYER_Base                      &none
+&trans  &kp GRAVE                  &kp TILDE              &kp BACKSLASH               &kp EXCLAMATION            &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp ASTERISK                   &kp SLASH                 &kp DOUBLE_QUOTES              &kp AMPERSAND                  &kp PLUS
+&trans  &hrm_l LEFT_CONTROL CARET  &hrm_l LEFT_ALT EQUAL  &hrm_l LEFT_GUI UNDERSCORE  &hrm_li LEFT_SHIFT DOLLAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &hrm_ri RIGHT_SHIFT SEMICOLON  &hrm_r RIGHT_GUI AT_SIGN  &hrm_r RIGHT_ALT SINGLE_QUOTE  &hrm_r RIGHT_CONTROL QUESTION  &trans
+&none   &kp LESS_THAN              &kp PIPE               &kp MINUS                   &kp GREATER_THAN           &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp COLON                      &kp HASH                  &kp COMMA                      &kp PERIOD                     &kp PERCENT
+                                                          &none                       &ld NUMBER NUMBER          &trans                &trans                 &to BASE                       &none
             >;
         };
 
-        none_layer {
-            label = "TEMPLATE: None Layer";
+        template_layer {
+            label = "TEMPLATE: Normal Layer";
             bindings = <
-&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none    &none  &none  &none  &none  &none  &none
-                     &none  &none  &none    &none  &none  &none
-            >;
-        };
-
-        trans_layer {
-            label = "TEMPLATE: Trans Layer";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&trans  &none  &none  &none  &none  &none   &none   &none  &none  &none  &none  &none
+&trans  &none  &none  &none  &none  &none   &none   &none  &none  &none  &none  &trans
+&none   &none  &none  &none  &none  &none   &none   &none  &none  &none  &none  &none
+                      &none  &none  &trans  &trans  &none  &none
             >;
         };
     };
